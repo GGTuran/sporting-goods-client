@@ -14,7 +14,7 @@ const HomePage = () => {
             <HeroSection></HeroSection>
             
             <FeaturedSection></FeaturedSection>
-        
+            
             <ContactUs></ContactUs>
      
         </div>

@@ -47,9 +47,9 @@ const FeaturedSection = () => {
   };
 
   return (
-    <main>
+    <main className="m-10">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {products.map((product) => (
+        {products.slice(0, 3).map((product) => (
           <Card key={product.id} className="flex flex-col justify-between">
             <CardHeader className="flex flex-row gap-4 items-center">
               <img src={product.image} alt={product.name} className="w-16 h-16 object-cover" />
