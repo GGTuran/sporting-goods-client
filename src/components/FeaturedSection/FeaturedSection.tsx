@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-
 import { Button } from "../ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../ui/card";
 
@@ -41,25 +40,33 @@ const FeaturedSection = () => {
     },
   ];
 
+ 
+  const handleViewDetails = (productId: number) => {
+    // history.push(`/product/${productId}`);
+    console.log('gg')
+  };
+
   return (
     <main>
-      <div className="grid grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {products.map((product) => (
           <Card key={product.id} className="flex flex-col justify-between">
-            <CardHeader className=" flex-row gap-4 items-center">
-                {product.image}
-                <div>
-                    <CardTitle>{product.name}</CardTitle>
-                    <CardDescription>{product.category}</CardDescription>
-
-                </div>
+            <CardHeader className="flex flex-row gap-4 items-center">
+              <img src={product.image} alt={product.name} className="w-16 h-16 object-cover" />
+              <div>
+                <CardTitle>{product.name}</CardTitle>
+                <CardDescription>{product.category}</CardDescription>
+              </div>
             </CardHeader>
             <CardContent>
-                <p>{product.description}</p>
-
+              <p>{product.description}</p>
+              <p>Brand: {product.brand}</p>
+              <p>Stock Quantity: {product.stockQuantity}</p>
+              <p>Price: ${product.price.toFixed(2)}</p>
+              <p>Rating: {product.rating}</p>
             </CardContent>
             <CardFooter className="flex justify-between">
-                <Button>View details</Button>
+              <button className="px-4 py-2 bg-gray-300 text-black rounded-lg hover:bg-gray-500 transition-colors duration-300" onClick={() => handleViewDetails(product.id)}>View Details</button>
             </CardFooter>
           </Card>
         ))}
