@@ -34,7 +34,7 @@ const HeroSection = () => {
       ];
   
     return (
-        <div className="relative w-full max-w-screen-lg mx-auto h-[300px] md:h-[400px] lg:h-[500px] mt-6">
+        <div className="relative m-10 w-full p-4 bg-cover bg-center max-w-screen-2xl mx-auto h-[300px] md:h-[400px] lg:h-[500px] mt-6">
       <Carousel
         className="overflow-hidden rounded-lg shadow-lg"
         plugins={[
@@ -50,7 +50,7 @@ const HeroSection = () => {
                 <CardContent className="flex items-center justify-center h-[300px] md:h-[400px] lg:h-[500px] p-0 relative">
                   <img
                     src={slider.image}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="h-full w-full  transition-transform duration-500 group-hover:scale-105"
                     alt=""
                   />
                   <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
