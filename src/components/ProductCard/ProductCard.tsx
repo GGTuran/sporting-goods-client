@@ -67,7 +67,7 @@ const ProductCard = ({ product }: any) => {
                     <p className="text-black font-medium">Available: {product.stockQuantity}</p>
                   </div>
                  <div>
-                 <Link className="flex justify-center items-center" to={`products/${product._id}` }>
+                 <Link className="flex justify-center items-center" to={`/product/${product._id}` }>
                  <button  className="px-4 py-2 bg-gray-300 text-black rounded-lg hover:bg-gray-500 transition-colors duration-300">
                     See More
                   </button></Link>

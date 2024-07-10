@@ -11,7 +11,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useState, useEffect, FormEvent, ChangeEvent } from "react";
-import { useGetProductQuery, useUpdateProductMutation } from "@/redux/api/baseApi";
+import { useGetProductByIdQuery,  useUpdateProductMutation } from "@/redux/api/baseApi";
 
 type FormData = {
   name: string;
@@ -25,7 +25,7 @@ type FormData = {
 };
 
 const UpdateProductModal = ({ productId }: { productId: string }) => {
-  const { data: productData } = useGetProductQuery(productId);
+  const { data: productData } = useGetProductByIdQuery(productId);
   const [updateProduct, { isLoading }] = useUpdateProductMutation();
 
   const [formData, setFormData] = useState<FormData>({
@@ -79,7 +79,7 @@ const UpdateProductModal = ({ productId }: { productId: string }) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <button className="px-4 py-2 bg-gray-300 text-black rounded-lg hover:bg-gray-500 transition-colors duration-300">Update Product</button>
+        <button className="px-4 py-2 bg-gray-300 text-black rounded-lg hover:bg-gray-500 transition-colors duration-300">Update</button>
       </DialogTrigger>
 
       <DialogContent className="sm:max-w-[425px]">

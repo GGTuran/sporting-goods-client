@@ -8,6 +8,7 @@ import Contact from "./Contact";
 import Category from "@/components/Category/Category";
 
 
+
 const HomePage = () => {
     return (
         <div className="min-h-screen">

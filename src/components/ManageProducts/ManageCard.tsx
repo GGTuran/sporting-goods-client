@@ -89,7 +89,7 @@ const ManageCard = ({ _id, name, description, category, brand, stockQuantity, ra
                  <div>
                  <Link className="flex justify-center items-center" to={`products/${_id}` }>
                  <button  className="px-4 py-2 bg-gray-300 text-black rounded-lg hover:bg-gray-500 transition-colors duration-300">
-                    See More
+                    Details
                   </button></Link>
                  </div>
                 </div>

@@ -32,7 +32,7 @@ import MailIcon from "@/assets/icons/MailIcon";
               Home
             </a>
             <a
-              href="/all-products"
+              href="/products"
               className="text-sm font-medium transition-colors hover:text-primary"
             >
               All Products
@@ -103,7 +103,7 @@ import MailIcon from "@/assets/icons/MailIcon";
                   Home
                 </a>
                 <a
-                  href="/all-products"
+                  href="/products"
                   className="flex items-center gap-2 text-sm font-medium transition-colors hover:text-primary"
                 >
                   <PackageIcon className="h-5 w-5" />

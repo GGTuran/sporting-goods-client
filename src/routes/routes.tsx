@@ -6,7 +6,9 @@ import Checkout from "@/pages/Checkout";
 import Contact from "@/pages/Contact";
 import HomePage from "@/pages/HomePage";
 import ManageProducts from "@/pages/ManageProducts";
-import SIngleProduct from "@/pages/SIngleProduct";
+import ProductDetail from "@/pages/ProductDetail";
+
+
 import { createBrowserRouter } from "react-router-dom";
 
 const router = createBrowserRouter([
@@ -20,7 +22,7 @@ const router = createBrowserRouter([
                 element: <HomePage></HomePage>
             },
             {
-                path: 'all-products',
+                path: 'products',
                 element: <AllProducts></AllProducts>
             },
             {
@@ -31,10 +33,7 @@ const router = createBrowserRouter([
                 path: 'manage-products',
                 element: <ManageProducts></ManageProducts>
             },
-            {
-                path: 'single-product',
-                element: <SIngleProduct></SIngleProduct>
-            },
+           
             {
                 path: 'cart',
                 element: <Cart></Cart>
@@ -47,6 +46,10 @@ const router = createBrowserRouter([
                 path: 'contact',
                 element: <Contact></Contact>
             },
+            {
+                path:'product/:productId',
+                element: <ProductDetail></ProductDetail>
+            }
         ]
     }
 ]);
