@@ -87,10 +87,10 @@ const ManageCard = ({ _id, name, description, category, brand, stockQuantity, ra
                     <p className="text-black font-medium">Available: {stockQuantity}</p>
                   </div>
                  <div>
-                 <Link className="flex justify-center items-center" to={`products/${_id}` }>
+                 {/* <Link className="flex justify-center items-center" to={`products/${_id}` }>
                  <button  className="px-4 py-2 bg-gray-300 text-black rounded-lg hover:bg-gray-500 transition-colors duration-300">
                     Details
-                  </button></Link>
+                  </button></Link> */}
                  </div>
                 </div>
                 <div className="mt-4 flex justify-between items-center">
