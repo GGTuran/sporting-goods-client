@@ -1,9 +1,10 @@
 
 
-import ContactUs from "@/components/ContactUs/ContactUs";
+
 import FeaturedSection from "@/components/FeaturedSection/FeaturedSection";
 
 import HeroSection from "@/components/HeroSection/HeroSection";
+import Contact from "./Contact";
 
 
 const HomePage = () => {
@@ -15,7 +16,7 @@ const HomePage = () => {
             
             <FeaturedSection></FeaturedSection>
             
-            <ContactUs></ContactUs>
+            <Contact></Contact>
      
         </div>
     );

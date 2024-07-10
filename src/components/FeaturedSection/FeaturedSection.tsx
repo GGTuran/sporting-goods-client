@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import ProductCard from "../ProductCard/ProductCard";
 import { Button } from "../ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../ui/card";
 
@@ -14,7 +15,7 @@ const FeaturedSection = () => {
       rating: 4.5,
       description: "This is a product description.",
       price: 99.99,
-      image: "https://via.placeholder.com/150",
+      image: "https://i.ibb.co/7Jx8VNf/christian-tenguan-P3gf-VKhz8d0-unsplash.jpg",
     },
     {
       id: 2,
@@ -25,7 +26,7 @@ const FeaturedSection = () => {
       rating: 4.0,
       description: "This is a product description.",
       price: 79.99,
-      image: "https://via.placeholder.com/150",
+      image: "https://i.ibb.co/7Jx8VNf/christian-tenguan-P3gf-VKhz8d0-unsplash.jpg",
     },
     {
       id: 3,
@@ -36,7 +37,7 @@ const FeaturedSection = () => {
       rating: 4.8,
       description: "This is a product description.",
       price: 129.99,
-      image: "https://via.placeholder.com/150",
+      image: "https://i.ibb.co/7Jx8VNf/christian-tenguan-P3gf-VKhz8d0-unsplash.jpg",
     },
   ];
 
@@ -49,27 +50,7 @@ const FeaturedSection = () => {
   return (
     <main className="m-10">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {products.slice(0, 3).map((product) => (
-          <Card key={product.id} className="flex flex-col justify-between">
-            <CardHeader className="flex flex-row gap-4 items-center">
-              <img src={product.image} alt={product.name} className="w-16 h-16 object-cover" />
-              <div>
-                <CardTitle>{product.name}</CardTitle>
-                <CardDescription>{product.category}</CardDescription>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p>{product.description}</p>
-              <p>Brand: {product.brand}</p>
-              <p>Stock Quantity: {product.stockQuantity}</p>
-              <p>Price: ${product.price.toFixed(2)}</p>
-              <p>Rating: {product.rating}</p>
-            </CardContent>
-            <CardFooter className="flex justify-between">
-              <button className="px-4 py-2 bg-gray-300 text-black rounded-lg hover:bg-gray-500 transition-colors duration-300" onClick={() => handleViewDetails(product.id)}>View Details</button>
-            </CardFooter>
-          </Card>
-        ))}
+        {products.slice(0, 3).map((product) => <ProductCard key={product.id} product={product}></ProductCard>)}
       </div>
     </main>
   );
