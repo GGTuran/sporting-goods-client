@@ -49,12 +49,12 @@ import MailIcon from "@/assets/icons/MailIcon";
             >
               Manage Products
             </a>
-            <a
+            {/* <a
               href="single-product"
               className="text-sm font-medium transition-colors hover:text-primary"
             >
               Single Product
-            </a>
+            </a> */}
             <a
               href="/cart"
               className="text-sm font-medium transition-colors hover:text-primary"
@@ -123,13 +123,13 @@ import MailIcon from "@/assets/icons/MailIcon";
                   <PackageIcon className="h-5 w-5" />
                   Manage Products
                 </a>
-                <a
+                {/* <a
                   href="single-product"
                   className="flex items-center gap-2 text-sm font-medium transition-colors hover:text-primary"
                 >
                   <PackageIcon className="h-5 w-5" />
                   Single Product
-                </a>
+                </a> */}
                 <a
                   href="/cart"
                   className="flex items-center gap-2 text-sm font-medium transition-colors hover:text-primary"

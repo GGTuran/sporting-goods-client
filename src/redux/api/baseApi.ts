@@ -16,8 +16,9 @@ export const baseApi = createApi({
         }),
         addProduct: builder.mutation({
             query: (data) => {
+                console.log('from base api', data)
                 return {
-                    url:`products`,
+                    url:`/products`,
                     method: 'POST',
                     body: data,
                 };
@@ -25,19 +26,19 @@ export const baseApi = createApi({
             invalidatesTags: ['products']
         }),
         updateProduct: builder.mutation({
-            query: (options) => {
+            query: ({id, ...data}) => {
                 return {
-                    url: `products/${options.id}`,
+                    url: `products/${id}`,
                     method: 'PATCH',
-                    body: options.data,
+                    body: data,
                 };
             },
             invalidatesTags: ['products']
         }),
         deleteProduct: builder.mutation({
-            query: (data) => {
+            query: (id) => {
                 return {
-                    url: `products/${data}`,
+                    url: `products/${id}`,
                     method: 'DELETE',
                 };
             },
