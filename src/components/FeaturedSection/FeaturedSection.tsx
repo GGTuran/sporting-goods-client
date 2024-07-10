@@ -47,6 +47,7 @@ const FeaturedSection = () => {
     console.log('gg')
   };
 
+  //rtk query polling interval for fetching latest data
   return (
     <main className="m-10">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -2,7 +2,7 @@
 
 const Checkout = () => {
     return (
-        <div>
+        <div className="min-h-screen">
             <h1>Checkout page</h1>
         </div>
     );

@@ -3,19 +3,11 @@
 import { useDeleteProductMutation } from "@/redux/api/baseApi";
 import Rating from "react-rating";
 import { Link } from "react-router-dom";
+import UpdateProductModal from "./UpdateProductModal";
+import { TProductCardProps } from "@/types/type";
+import { Button } from "../ui/button";
 
-export type TProductCardProps = {
-    _id: string;
-    name: string;
-    description: string;
-    category: string;
-    brand: string;
-    stockQuantity: number;
-    rating: number;
-    price: number;
-    image: string;
 
-}
 
 const ManageCard = ({ _id, name, description, category, brand, stockQuantity, rating, price, image}: TProductCardProps) => {
 
@@ -102,7 +94,7 @@ const ManageCard = ({ _id, name, description, category, brand, stockQuantity, ra
                  </div>
                 </div>
                 <div className="mt-4 flex justify-between items-center">
-                    <button>Update component</button>
+                    <UpdateProductModal productId={_id}></UpdateProductModal>
                     <button onClick={removeProduct} className="px-4 py-2 bg-gray-300 text-black rounded-lg hover:bg-gray-500 transition-colors duration-300">Delete</button>
                 </div>
               </div>

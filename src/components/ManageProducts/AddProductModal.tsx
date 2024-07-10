@@ -46,13 +46,14 @@ const AddProductModal = () => {
         console.log(productDetails)
 
         addProduct(productDetails);
+        // const toastId = toast.success("Added Product successfully!");
         
     }
 
   return (
 <Dialog>
       <DialogTrigger asChild>
-        <button className="px-4 py-2 bg-gray-300 text-black rounded-lg hover:bg-gray-500 transition-colors duration-300">Add Todo</button>
+        <button className="px-4 py-2 bg-gray-300 text-black rounded-lg hover:bg-gray-500 transition-colors duration-300">Add Product</button>
       </DialogTrigger>
 
       <DialogContent className="sm:max-w-[425px]">

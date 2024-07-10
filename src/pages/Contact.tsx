@@ -1,13 +1,14 @@
 const Contact = () => {
   return (
-    <div className="m-10 min-h-screen ">
+    <div className="m-10 ">
       
       <div>
         <section className="bg-gray-100 rounded-2xl">
-      <h1 className="text-3xl text-center font-medium mt-2">Contact Us</h1>
+      
           <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
               <div className="lg:col-span-2 lg:py-12">
+              <h1 className="text-3xl text-left font-medium mb-2">Contact Us</h1>
                 <p className="max-w-xl text-lg">
                   At the same time, the fact that we are wholly owned and
                   totally independent from manufacturer and other group control
@@ -15,8 +16,8 @@ const Contact = () => {
                   for you.
                 </p>
 
-                <div className="mt-8">
-                  <a href="#" className="text-2xl font-bold text-black">
+                <div className="mt-5">
+                  <a href="#" className="text-2xl font-medium text-black">
                     {" "}
                     0151 475 4450{" "}
                   </a>
@@ -69,19 +70,6 @@ const Contact = () => {
                   </div>
 
                   <div className="grid grid-cols-1 gap-4 text-center sm:grid-cols-3">
-                    <div>
-                     
-
-                      
-                    </div>
-
-                    <div>
-                     
-                    </div>
-
-                    <div>
-                     
-                    </div>
                   </div>
 
                   <div>
@@ -92,7 +80,7 @@ const Contact = () => {
                     <textarea
                       className="w-full rounded-lg border-gray-200 p-3 text-sm"
                       placeholder="Message"
-                      rows="8"
+                      // rows="8"
                       id="message"
                     ></textarea>
                   </div>
