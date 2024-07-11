@@ -7,6 +7,7 @@ import Contact from "@/pages/Contact";
 import HomePage from "@/pages/HomePage";
 import ManageProducts from "@/pages/ManageProducts";
 import ProductDetail from "@/pages/ProductDetail";
+import SuccessPage from "@/pages/SuccessPage";
 
 
 import { createBrowserRouter } from "react-router-dom";
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
             {
                 path:'product/:productId',
                 element: <ProductDetail></ProductDetail>
+            },
+            {
+                path: '/success',
+                element: <SuccessPage></SuccessPage>
             }
         ]
     }

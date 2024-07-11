@@ -6,7 +6,6 @@ import {
     SheetClose,
   } from "@/components/ui/sheet";
   import { Button } from "@/components/ui/button";
-import CreditCardIcon from "@/assets/icons/CreditCardIcon";
 import HomeIcon from "@/assets/icons/HomeIcon";
 import MountainIcon from "@/assets/icons/MountainIcon";
 import MenuIcon from "@/assets/icons/MenuIcon";
@@ -18,7 +17,7 @@ import MailIcon from "@/assets/icons/MailIcon";
   
   const Navbar = () => {
     return (
-      <header className="bg-background text-foreground shadow-sm">
+      <header className="bg-background bg-gray-100  text-foreground shadow-sm">
         <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
           <a href="/" className="flex items-center">
             <MountainIcon className="h-6 w-6 text-primary" />
@@ -61,12 +60,12 @@ import MailIcon from "@/assets/icons/MailIcon";
             >
               Cart
             </a>
-            <a
+            {/* <a
               href="/checkout"
               className="text-sm font-medium transition-colors hover:text-primary"
             >
               Checkout
-            </a>
+            </a> */}
             <a
               href="contact"
               className="text-sm font-medium transition-colors hover:text-primary"
@@ -137,13 +136,13 @@ import MailIcon from "@/assets/icons/MailIcon";
                   <ShoppingCartIcon className="h-5 w-5" />
                   Cart
                 </a>
-                <a
+                {/* <a
                   href="/checkout"
                   className="flex items-center gap-2 text-sm font-medium transition-colors hover:text-primary"
                 >
                   <CreditCardIcon className="h-5 w-5" />
                   Checkout
-                </a>
+                </a> */}
                 <a
                   href="/contact"
                   className="flex items-center gap-2 text-sm font-medium transition-colors hover:text-primary"

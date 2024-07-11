@@ -44,8 +44,9 @@ const AboutUs = () => {
   ];
 
   return (
-    <div className="m-10 rounded-2xl min-h-screen">
-      <div className="bg-gray-100 rounded-2xl m-10">
+    <div className="mb-10  rounded-2xl min-h-screen">
+      
+      <div className="bg-gray-100 rounded-2xl p-5 mb-10">
         {/* Information about the company */}
         <section className="container mx-auto px-4 py-12">
           <h2 className="text-3xl text-left font-medium mb-2">

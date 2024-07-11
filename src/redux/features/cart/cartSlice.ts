@@ -42,7 +42,7 @@ const cartSlice = createSlice({
               existingProduct.quantity = quantity;
             }
           },
-          clearOrderedItems: (state, action: PayloadAction<string[]>) => {
+          clearOrderedItems: (state, action: PayloadAction<string>) => {
             state.items = state.items.filter(item => !action.payload.includes(item.productId));
           }
     }

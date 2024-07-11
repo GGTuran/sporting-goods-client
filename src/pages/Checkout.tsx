@@ -1,17 +1,17 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '@/redux/store';
+
 import { useCreateOrderMutation } from '@/redux/api/baseApi';
 import { TOrder } from '@/types/type';
 import { clearOrderedItems } from '@/redux/features/cart/cartSlice';
-import { useAppSelector } from '@/redux/hooks';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { useNavigate } from 'react-router-dom';
 
 const Checkout: React.FC = () => {
   const cart = useAppSelector((state) => state.cart.items)
   console.log(cart[0].productId);
   console.log(cart[0].quantity);
+  
   const [userDetails, setUserDetails] = useState({
     userName: '',
     email: '',
@@ -20,9 +20,13 @@ const Checkout: React.FC = () => {
   });
   const [paymentMethod, setPaymentMethod] = useState('');
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [createOrder] = useCreateOrderMutation();
+  if (!cart || cart.length === 0 || !cart[0]?.productId) {
+    console.error('Cart is empty');
+    return <p>Cart is empty</p>
+  }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setUserDetails({
@@ -32,6 +36,11 @@ const Checkout: React.FC = () => {
   };
 
   const handlePlaceOrder = async () => {
+
+    if (!cart || cart.length === 0 || !cart[0]?.productId) {
+        console.error('Cart is empty');
+        return <p>Cart is empty</p>
+      }
     const order: TOrder = {
       userName: userDetails.userName,
       email: userDetails.email,
@@ -44,10 +53,10 @@ const Checkout: React.FC = () => {
 
     try {
       const { data } = await createOrder(order).unwrap(); // Assuming createOrder mutation returns the order data
-    //   dispatch(clearOrderedItems()); // Clear cart after successful order placement
+      dispatch(clearOrderedItems(cart[0].productId)); // Clear cart after successful order placement
       console.log('Order placed successfully:', data);
       // Navigate to order success page or show success message
-      navigate('/');
+      navigate('/success');
     } catch (error) {
       console.error('Error placing order:', error);
       // Handle error scenario, such as displaying an error message to the user
