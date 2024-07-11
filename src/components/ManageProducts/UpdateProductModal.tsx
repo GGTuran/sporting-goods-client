@@ -12,6 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useState, useEffect, FormEvent, ChangeEvent } from "react";
 import { useGetProductByIdQuery,  useUpdateProductMutation } from "@/redux/api/baseApi";
+import toast, { Toaster } from "react-hot-toast";
 
 type FormData = {
   name: string;
@@ -73,13 +74,16 @@ const UpdateProductModal = ({ productId}) => {
     }, {} as Partial<FormData>);
 
     updateProduct({ id: productId, data: updatedProduct });
-    console.log({ productId, ...updatedProduct }, 'from update modal');
+    toast.success("Product Updated Successfully")
+    // console.log({ productId, ...updatedProduct }, 'from update modal');
   };
 
  
 
   return (
-    <Dialog>
+<div>
+  <Toaster/>
+<Dialog>
       <DialogTrigger asChild>
         <button className="px-4 py-2 bg-gray-300 text-black rounded-lg hover:bg-gray-500 transition-colors duration-300">Update</button>
       </DialogTrigger>
@@ -193,6 +197,7 @@ const UpdateProductModal = ({ productId}) => {
         </form>
       </DialogContent>
     </Dialog>
+</div>
   );
 };
 

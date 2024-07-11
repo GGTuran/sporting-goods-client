@@ -21,7 +21,7 @@ import MailIcon from "@/assets/icons/MailIcon";
         <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
           <a href="/" className="flex items-center">
             <MountainIcon className="h-6 w-6 text-primary" />
-            <span >Sporting Goods</span>
+            <span >Home Of Sports</span>
           </a>
           <nav className="hidden items-center gap-6 md:flex">
             <a
@@ -84,7 +84,7 @@ import MailIcon from "@/assets/icons/MailIcon";
               <div className="flex h-16 items-center justify-between px-4">
                 <a href="/" className="flex items-center">
                   <MountainIcon className="h-6 w-6 text-primary" />
-                  <span className="sr-only">Acme Sporting Goods</span>
+                  <span className="sr-only">Home Of Sports</span>
                 </a>
                 <SheetClose asChild>
                   <Button variant="ghost" size="icon">

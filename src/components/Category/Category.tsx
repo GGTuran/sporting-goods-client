@@ -46,7 +46,7 @@ const Category = () => {
                                 <h5 className="text-white text-lg lg:text-xl font-bold px-4 py-2">{/* Category Name */}</h5>
                             </div>
                             <img
-                                src={bannerImageOne}
+                                src="https://i.ibb.co/7Jx8VNf/christian-tenguan-P3gf-VKhz8d0-unsplash.jpg"
                                 alt="Category Image"
                                 className="absolute inset-0 w-full h-full object-cover"
                             />
@@ -65,7 +65,7 @@ const Category = () => {
                                 <h5 className="text-white text-lg lg:text-xl font-bold px-4 py-2">{/* Category Name */}</h5>
                             </div>
                             <img
-                                src={bannerImageOne}
+                                src="https://i.ibb.co/7Jx8VNf/christian-tenguan-P3gf-VKhz8d0-unsplash.jpg"
                                 alt="Category Image"
                                 className="absolute inset-0 w-full h-full object-cover"
                             />

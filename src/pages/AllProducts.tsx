@@ -34,7 +34,7 @@ const AllProducts = () => {
         <div className="min-h-screen">
             
             <h1 className="text-center text-3xl font-semibold my-10">All Products</h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-3">
+            <div className="mx-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-3 mb-5">
                 {
                     products?.data?.map((product) => <ProductCard key={product._id} product={product}></ProductCard>)
                 }

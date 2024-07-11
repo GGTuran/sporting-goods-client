@@ -8,9 +8,9 @@ const MainLayout = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar></Navbar>
-      <div className="container pt-24 max-w-screen-xl mx-auto min-h[calc(100vh-324px)]">
+      {/* <div > */}
       <Outlet></Outlet>
-      </div>
+      {/* </div> */}
       <Footer></Footer>
     </div>
   );

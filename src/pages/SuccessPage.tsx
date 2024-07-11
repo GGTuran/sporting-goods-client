@@ -11,7 +11,7 @@ const SuccessPage = () => {
     transition={{ duration: 0.5, ease: 'easeInOut' }}
     className="min-h-screen flex flex-col justify-center items-center"
   >
-    <div className="text-center m-10">
+    <div className="text-center ">
       <motion.h1
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}

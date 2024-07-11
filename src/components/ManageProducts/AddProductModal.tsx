@@ -14,6 +14,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useAddProductMutation } from "@/redux/api/baseApi"
 import { FormEvent, useState } from "react"
+import toast, { Toaster } from "react-hot-toast"
 
 const AddProductModal = () => {
 
@@ -30,7 +31,7 @@ const AddProductModal = () => {
     const [addProduct, {data, isLoading, isError, isSuccess}] = useAddProductMutation();
     console.log(isLoading, isSuccess, isError, data);
 
-    const onSubmit = (e: FormEvent) => {
+    const onSubmit = async(e: FormEvent) => {
         e.preventDefault();
 
         const productDetails = {
@@ -43,14 +44,21 @@ const AddProductModal = () => {
             price: Number(price),
             image,
         };
-        console.log(productDetails)
-
-        addProduct(productDetails);
+        // console.log(productDetails)
+        try {
+          await addProduct(productDetails);
+          toast.success("Product added successfully!");
+        } catch (error) {
+          toast.error("Error adding product. Please try again.");
+        }
+        // addProduct(productDetails);
         // const toastId = toast.success("Added Product successfully!");
         
     }
 
   return (
+<div>
+  <Toaster/>
 <Dialog>
       <DialogTrigger asChild>
         <button className="px-4 py-2 bg-gray-300 text-black rounded-lg hover:bg-gray-500 transition-colors duration-300">Add Product</button>
@@ -107,7 +115,7 @@ const AddProductModal = () => {
             </div>
             <div className="grid grid-cols-4 items-center gap-4">
               <Label htmlFor="stockQuantity" className="text-right">
-                STock Quantity
+                Stock Quantity
               </Label>
               <Input
                  onBlur={(e) => setStockQuantity(e.target.value)}
@@ -157,6 +165,7 @@ const AddProductModal = () => {
         </form>
       </DialogContent>
     </Dialog>
+</div>
   )
 }
 

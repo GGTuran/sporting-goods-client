@@ -45,45 +45,40 @@ const AboutUs = () => {
 
   return (
     <div className="mb-10  rounded-2xl min-h-screen">
-      
-      <div className="bg-gray-100 rounded-2xl p-5 mb-10">
-        {/* Information about the company */}
-        <section className="container mx-auto px-4 py-12">
-          <h2 className="text-3xl text-left font-medium mb-2">
-            About Our Company
-          </h2>
-          <p className="text-gray-700 leading-loose">
-            Our company is a leading provider of innovative solutions in the
-            industry. We pride ourselves on delivering exceptional services and
-            products that exceed our clients' expectations. Our team is
-            dedicated to continuous improvement and staying ahead of the curve.
-          </p>
-        </section>
-
-        {/* Mission and Vision Statements */}
-        <section className="container mx-auto px-4 py-12">
-          <h2 className="text-3xl text-left font-medium mb-2">Our Mission</h2>
-          <p className="text-gray-700 leading-loose">
-            Our mission is to deliver exceptional services and solutions that
-            exceed our clients' expectations. We are dedicated to innovation,
-            quality, and customer satisfaction. Our team works tirelessly to
-            stay ahead of the curve and bring you the best in the industry.
-          </p>
-          <h2 className="text-3xl text-left font-medium mb-2 mt-8">
-            Our Vision
-          </h2>
-          <p className="text-gray-700 leading-loose">
-            Our vision is to be the global leader in our field, known for our
-            commitment to excellence and our ability to adapt and innovate in a
-            rapidly changing market.
-          </p>
-        </section>
-
-        {/* Contact Information */}
-      </div>
-      <div>
-        <Contact />
-      </div>
+      <section className="bg-background py-12 md:py-20 lg:py-24">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="grid gap-8 md:grid-cols-2 lg:gap-12">
+            <div>
+              <h2 className="text-3xl font-medium tracking-tight text-foreground sm:text-3xl">
+                About Home Of Sports
+              </h2>
+              <p className="mt-4 text-muted-foreground">
+                Home Of Sports is a leading retailer of high-quality sporting
+                goods, founded in 1985. With over 35 years of experience in the
+                industry, we pride ourselves on our expertise and commitment to
+                providing our customers with the best products and services.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold tracking-tight text-foreground">
+                Our Mission and Vision
+              </h3>
+              <p className="mt-4 text-muted-foreground">
+                Our mission is to inspire and empower our customers to live an
+                active, healthy lifestyle. We strive to be the trusted
+                destination for all their sporting goods needs, offering a wide
+                selection of top-quality products and exceptional customer
+                service.
+              </p>
+              <p className="mt-4 text-muted-foreground">
+                Our vision is to be the premier sporting goods retailer, known
+                for our unparalleled product expertise, innovative solutions,
+                and unwavering commitment to our community.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Our Team Section */}
       <section className="bg-white py-12">
@@ -108,23 +103,41 @@ const AboutUs = () => {
         </div>
       </section>
 
+      {/* Contact Information */}
+      <div>
+        <Contact />
+      </div>
+
       {/* Our Store Location Information */}
-      <section className="rounded-2xl mx-10 bg-gray-100 py-12">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-semibold mb-8">Our Store Location</h2>
-          <p className="text-gray-700 leading-loose">
-            Visit our store at the following location:
-          </p>
-          <p className="text-gray-700 leading-loose">
-            Address: 2 no R.C.Church road,Patherghata
-			Chattogram, Bangladesh
-            <br />
-            Store Hours: Monday - Friday, 9 AM - 5 PM
-          </p>
+      <section className="bg-background py-12 md:py-20 lg:py-24">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="mt-7 md:mt-10">
+            <h3 className="text-3xl font-medium text-center tracking-tight text-foreground">
+              Visit Our Store
+            </h3>
+            <div className="mt-4 rounded-lg border shadow-sm">
+              <div className="aspect-[16/9] overflow-hidden rounded-t-lg">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3690.5753808979825!2d91.83636487522948!3d22.331893141749624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30ad275100d9f757%3A0x744c25eb0b06166a!2zMiBSIEMgQ2h1cmNoIFJkLCDgpprgpp_gp43gpp_gppfgp43gprDgpr7gpq4!5e0!3m2!1sbn!2sbd!4v1720693220657!5m2!1sbn!2sbd"
+                  width="100%"
+                  height="100%"
+                  frameBorder="0"
+                  allowFullScreen=""
+                  aria-hidden="false"
+                  tabIndex="0"
+                  title="Acme Sports Store Location"
+                />
+              </div>
+              <div className="p-4">
+                <p className="font-medium text-foreground">Home Of Sports</p>
+                <p className="mt-1 text-muted-foreground">
+                  2 no R.C.Church road,Patherghata Chattogram, Bangladesh
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
-
-      {/* Contact Component */}
     </div>
   );
 };

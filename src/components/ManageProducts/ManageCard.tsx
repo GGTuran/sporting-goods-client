@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import UpdateProductModal from "./UpdateProductModal";
 import { TProductCardProps } from "@/types/type";
 import { Button } from "../ui/button";
+import toast, { Toaster } from "react-hot-toast";
 
 
 
@@ -16,12 +17,14 @@ const ManageCard = ({ _id, name, description, category, brand, stockQuantity, ra
     const [ deleteProduct ] = useDeleteProductMutation();
 
     const removeProduct = () => {
-        deleteProduct(_id)
+        deleteProduct(_id);
+        toast.success("Product deleted successfully")
     }
 
 
     return (
       <main >
+        <Toaster/>
       
         {
           <div className="rounded-2xl group relative block overflow-hidden">
