@@ -8,6 +8,7 @@ const FeaturedSection = () => {
     isLoading,
     isError,
   } = useGetAllProductsQuery(undefined, { pollingInterval: 30000 });
+  console.log(products)
 
   if (isLoading) {
     return (

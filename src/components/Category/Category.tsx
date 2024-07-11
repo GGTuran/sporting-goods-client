@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import bannerImageOne from "@/assets/images/logo.svg"; // Replace with your actual image path
 
 const Category = () => {
     const cardVariants = {

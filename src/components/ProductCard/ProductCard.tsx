@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import { Link } from 'react-router-dom';
-import Rating from 'react-rating';
+
 import { motion } from 'framer-motion';
+import Rating from '../ui/Rating';
 
 const ProductCard = ({ product }: any) => {
   return (
@@ -26,12 +27,7 @@ const ProductCard = ({ product }: any) => {
         <p className="text-sm mb-4">{product.description}</p>
         <div className="flex items-center mb-2 justify-between">
           
-          <Rating
-            initialRating={product.rating}
-            readonly
-            emptySymbol={<svg className="w-4 h-4 text-gray-300"><path fillRule="evenodd" d="M10 15l5.09 2.67-1.38-6.09L18 7.84l-6.18-.53L10 2l-1.82 5.31L2 7.84l4.29 3.74L4.91 17.67 10 15z" /></svg>}
-            fullSymbol={<svg className="w-4 h-4 text-yellow-500"><path fillRule="evenodd" d="M10 15l5.09 2.67-1.38-6.09L18 7.84l-6.18-.53L10 2l-1.82 5.31L2 7.84l4.29 3.74L4.91 17.67 10 15z" /></svg>}
-          />
+        <span className='flex gap-2'>{Rating(product.rating)}</span>
           <span className="font-medium">Stock:{product.stockQuantity}</span>
         </div>
        

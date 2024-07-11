@@ -7,7 +7,7 @@ export const baseApi = createApi({
     endpoints: (builder) => ({
         getAllProducts: builder.query({
             query: (query) => {
-                const { searchTerm, sort, categories } = query || {};
+                const { searchTerm, sort,  } = query || {};
                 let url = "/products";
 
                 if(searchTerm) {
