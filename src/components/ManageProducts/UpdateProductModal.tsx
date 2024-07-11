@@ -24,7 +24,7 @@ type FormData = {
   image: string;
 };
 
-const UpdateProductModal = ({ productId }: { productId: string }) => {
+const UpdateProductModal = ({ productId}) => {
   const { data: productData } = useGetProductByIdQuery(productId);
   const [updateProduct, { isLoading }] = useUpdateProductMutation();
 
@@ -76,6 +76,8 @@ const UpdateProductModal = ({ productId }: { productId: string }) => {
     console.log({ productId, ...updatedProduct }, 'from update modal');
   };
 
+ 
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -94,6 +96,8 @@ const UpdateProductModal = ({ productId }: { productId: string }) => {
                 Name
               </Label>
               <Input
+                
+                
                 value={formData.name}
                 onChange={handleChange}
                 id="name"

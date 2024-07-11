@@ -6,8 +6,18 @@ import { useGetAllProductsQuery } from "@/redux/api/baseApi";
 
 const AllProducts = () => {
 
-    const { data: products, isLoading, isError } = useGetAllProductsQuery(undefined);
-    console.log(products);
+    // const clearFilters = () => {
+    //     setFilters({
+    //       category: "",
+    //       brand: "",
+    //       price: "",
+    //       rating: ""
+    //     });
+    //     setSearchTerm("");
+    //   };
+
+    const { data: products, isLoading, isError } = useGetAllProductsQuery(undefined, {pollingInterval: 30000});
+ 
 
     if(isLoading) {
         return(
@@ -29,6 +39,7 @@ const AllProducts = () => {
                     products?.data?.map((product) => <ProductCard key={product._id} product={product}></ProductCard>)
                 }
             </div>
+            {/* <button onClick={clearFilters} className="border p-2 rounded bg-red-500 text-white">Clear Filters</button> */}
         </div>
     );
 };

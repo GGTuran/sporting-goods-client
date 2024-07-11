@@ -11,14 +11,7 @@ import { Button } from "../ui/button";
 
 const ManageCard = ({ _id, name, description, category, brand, stockQuantity, rating, price, image}: TProductCardProps) => {
 
-    // const [name, setName] = useState("");
-    // const [description, setDescription] = useState("");
-    // const [category, setCategory] = useState("");
-    // const [brand, setBrand] = useState("");
-    // const [stockQuantity, setStockQuantity] = useState("");
-    // const [rating, setRating] = useState("");
-    // const [price, setPrice] = useState("");
-    // const [image, setImage] = useState("");
+  
 
     const [ deleteProduct ] = useDeleteProductMutation();
 
