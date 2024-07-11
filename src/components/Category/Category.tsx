@@ -22,7 +22,7 @@ const Category = () => {
                         className="relative overflow-hidden bg-cover bg-center rounded-lg shadow-lg hover:shadow-xl transition-shadow"
                         style={{ paddingBottom: "56.25%" }}
                     >
-                        <Link to="/category">
+                        <Link to="/products?searchTerm=Tennis">
                             <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 hover:bg-opacity-60 transition-opacity">
                                 <h5 className="text-white text-lg lg:text-xl font-bold px-4 py-2">{/* Category Name */}</h5>
                             </div>

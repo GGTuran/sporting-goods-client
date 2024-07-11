@@ -99,9 +99,10 @@ const Checkout = () => {
         />
         <input
           type="text"
+          // defaultValue={Cash On dDelivery}
           value={paymentMethod}
-          onChange={(e) => setPaymentMethod(e.target.value)}
-          placeholder="Payment Method"
+          onChange={(e) => setPaymentMethod("Cash On Delivery")}
+          placeholder="Cash On Delivery"
           className="input-field mb-4"
         />
         <motion.button

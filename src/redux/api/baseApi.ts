@@ -6,10 +6,23 @@ export const baseApi = createApi({
     tagTypes: ['products'],
     endpoints: (builder) => ({
         getAllProducts: builder.query({
-            query: (queryParams) => {
-                const query = new URLSearchParams(queryParams).toString();
+            query: (query) => {
+                const { searchTerm, sort, categories } = query || {};
+                let url = "/products";
+
+                if(searchTerm) {
+                    url += `?searchTerm=${searchTerm}`;
+                }
+
+                if(sort) {
+                    const sortValue = sort === "descending" ? "-price" : "price";
+                    url += searchTerm ? `&sort=${sortValue}` : `?sort=${sortValue}`;
+                }
+
+                
+                
                 return {
-                    url:`products?${query}`,
+                    url,
                     method: 'GET',
                 }
             },
