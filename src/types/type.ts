@@ -9,4 +9,14 @@ export type TProductCardProps = {
     price: number;
     image: string;
 
+};
+
+export type TOrder = {
+    userName: string;
+    email: string;
+    phone: string;
+    deliveryAddress: string;
+    productId: string;
+    quantity: number;
+    paymentMethod: string;
 }

@@ -53,8 +53,16 @@ export const baseApi = createApi({
             },
             invalidatesTags: ['products']
         }),
+        createOrder: builder.mutation({
+            query: (order) => ({
+                url: '/orders',
+                method: 'POST',
+                body: order,
+            }),
+        }),
+
         // new query
     })
 })
 
-export const { useGetAllProductsQuery, useGetProductByIdQuery, useAddProductMutation, useDeleteProductMutation, useUpdateProductMutation } = baseApi;
+export const { useGetAllProductsQuery, useGetProductByIdQuery, useAddProductMutation, useDeleteProductMutation, useUpdateProductMutation, useCreateOrderMutation} = baseApi;
