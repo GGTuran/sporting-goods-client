@@ -66,6 +66,15 @@ export const baseApi = createApi({
             },
             invalidatesTags: ['products']
         }),
+        getProductsByCategory: builder.query({
+            query: (category) => {
+                return {
+                    url:`products/category/${category}`,
+                    method: 'GET'
+                }
+            },
+            providesTags: ['products'],
+          }),
         createOrder: builder.mutation({
             query: (order) => ({
                 url: '/orders',

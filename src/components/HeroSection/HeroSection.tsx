@@ -7,9 +7,9 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import sliderImage1 from "@/assets/images/logo.svg";
-import sliderImage2 from "@/assets/react.svg";
-import sliderImage3 from "@/assets/react.svg";
+import sliderImage1 from "@/assets/images/basketball.jpg";
+import sliderImage2 from "@/assets/images/Adidas.jpg";
+import sliderImage3 from "@/assets/images/benjamin-hershey-qegSxvH9U9Y-unsplash.jpg";
 
 const HeroSection = () => {
     const sliderData = [
@@ -23,7 +23,7 @@ const HeroSection = () => {
           id: 2,
           image: sliderImage2,
           title: "Exclusive Offer",
-          description: "Buy one get one free on selected items",
+          description: "Buy Adidas Sambas with 15% Off",
         },
         {
           id: 3,

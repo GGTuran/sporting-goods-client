@@ -27,10 +27,11 @@ type FormData = {
 
 const UpdateProductModal = ({ productId}) => {
   const { data: productData } = useGetProductByIdQuery(productId);
+  console.log(productData)
   const [updateProduct, { isLoading }] = useUpdateProductMutation();
 
   const [formData, setFormData] = useState<FormData>({
-    name: "",
+    name: `${productData.data.name}`,
     description: "",
     category: "",
     brand: "",
@@ -100,7 +101,7 @@ const UpdateProductModal = ({ productId}) => {
                 Name
               </Label>
               <Input
-                
+              placeholder={productData.data.name}
                 
                 value={formData.name}
                 onChange={handleChange}
@@ -113,6 +114,7 @@ const UpdateProductModal = ({ productId}) => {
                 Description
               </Label>
               <Input
+              placeholder={productData.data.description}
                 value={formData.description}
                 onChange={handleChange}
                 id="description"
@@ -124,6 +126,7 @@ const UpdateProductModal = ({ productId}) => {
                 Category
               </Label>
               <Input
+              placeholder={productData.data.category}
                 value={formData.category}
                 onChange={handleChange}
                 id="category"
@@ -135,6 +138,7 @@ const UpdateProductModal = ({ productId}) => {
                 Brand
               </Label>
               <Input
+              placeholder={productData.data.brand}
                 value={formData.brand}
                 onChange={handleChange}
                 id="brand"
@@ -146,6 +150,7 @@ const UpdateProductModal = ({ productId}) => {
                 Stock Quantity
               </Label>
               <Input
+              placeholder={productData.data.stockQuantity}
                 value={formData.stockQuantity}
                 onChange={handleChange}
                 id="stockQuantity"
@@ -158,6 +163,7 @@ const UpdateProductModal = ({ productId}) => {
                 Rating
               </Label>
               <Input
+              placeholder={productData.data.rating}
                 value={formData.rating}
                 onChange={handleChange}
                 id="rating"
@@ -170,6 +176,7 @@ const UpdateProductModal = ({ productId}) => {
                 Price
               </Label>
               <Input
+              placeholder={productData.data.price}
                 value={formData.price}
                 onChange={handleChange}
                 id="price"
@@ -182,6 +189,7 @@ const UpdateProductModal = ({ productId}) => {
                 Image Link
               </Label>
               <Input
+              placeholder={productData.data.image}
                 value={formData.image}
                 onChange={handleChange}
                 id="image"

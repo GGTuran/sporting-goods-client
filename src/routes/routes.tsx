@@ -4,6 +4,7 @@ import AllProducts from "@/pages/AllProducts";
 import Cart from "@/pages/Cart";
 import Checkout from "@/pages/Checkout";
 import Contact from "@/pages/Contact";
+import Error from "@/pages/Error";
 import HomePage from "@/pages/HomePage";
 import ManageProducts from "@/pages/ManageProducts";
 import ProductDetail from "@/pages/ProductDetail";
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
     {
         path: '/',
         element: <App></App>,
+        errorElement:<Error></Error>,
         children: [
             {
                 index: true,

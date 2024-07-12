@@ -36,36 +36,26 @@ import MailIcon from "@/assets/icons/MailIcon";
             >
               All Products
             </a>
-            <a
-              href="/about-us"
-              className="text-sm font-medium transition-colors hover:text-primary"
-            >
-              About Us
-            </a>
+          
             <a
               href="/manage-products"
               className="text-sm font-medium transition-colors hover:text-primary"
             >
               Manage Products
             </a>
-            {/* <a
-              href="single-product"
-              className="text-sm font-medium transition-colors hover:text-primary"
-            >
-              Single Product
-            </a> */}
+            
             <a
               href="/cart"
               className="text-sm font-medium transition-colors hover:text-primary"
             >
               Cart
             </a>
-            {/* <a
-              href="/checkout"
+            <a
+              href="/about-us"
               className="text-sm font-medium transition-colors hover:text-primary"
             >
-              Checkout
-            </a> */}
+              About Us
+            </a>
             <a
               href="contact"
               className="text-sm font-medium transition-colors hover:text-primary"
@@ -108,13 +98,7 @@ import MailIcon from "@/assets/icons/MailIcon";
                   <PackageIcon className="h-5 w-5" />
                   All Products
                 </a>
-                <a
-                  href="/about-us"
-                  className="flex items-center gap-2 text-sm font-medium transition-colors hover:text-primary"
-                >
-                  <InfoIcon className="h-5 w-5" />
-                  About Us
-                </a>
+               
                 <a
                   href="manage-products"
                   className="flex items-center gap-2 text-sm font-medium transition-colors hover:text-primary"
@@ -122,13 +106,7 @@ import MailIcon from "@/assets/icons/MailIcon";
                   <PackageIcon className="h-5 w-5" />
                   Manage Products
                 </a>
-                {/* <a
-                  href="single-product"
-                  className="flex items-center gap-2 text-sm font-medium transition-colors hover:text-primary"
-                >
-                  <PackageIcon className="h-5 w-5" />
-                  Single Product
-                </a> */}
+               
                 <a
                   href="/cart"
                   className="flex items-center gap-2 text-sm font-medium transition-colors hover:text-primary"
@@ -136,13 +114,13 @@ import MailIcon from "@/assets/icons/MailIcon";
                   <ShoppingCartIcon className="h-5 w-5" />
                   Cart
                 </a>
-                {/* <a
-                  href="/checkout"
+                <a
+                  href="/about-us"
                   className="flex items-center gap-2 text-sm font-medium transition-colors hover:text-primary"
                 >
-                  <CreditCardIcon className="h-5 w-5" />
-                  Checkout
-                </a> */}
+                  <InfoIcon className="h-5 w-5" />
+                  About Us
+                </a>
                 <a
                   href="/contact"
                   className="flex items-center gap-2 text-sm font-medium transition-colors hover:text-primary"

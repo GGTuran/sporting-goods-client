@@ -14,20 +14,21 @@ const Cart = () => {
 
   const handleRemove = (productId: string) => {
     dispatch(removeFromCart(productId));
-    toast.success('Item removed from cart');
+    toast.success("Item removed from cart");
   };
 
   const handleQuantityChange = (productId: string, quantity: number) => {
     dispatch(updateQuantity({ productId, quantity }));
-    toast.success('Cart updated');
+    toast.success("Cart updated");
   };
 
+  //calculating total price with 15% vat
   const calculateTotal = () => {
     return (
       cart.reduce((total, item) => {
         return total + item.product.price * item.quantity;
       }, 0) * 1.15
-    ); // Including 15% VAT
+    ); 
   };
 
   const handleCheckout = (productId?: string) => {
@@ -37,7 +38,7 @@ const Cart = () => {
       if (cart.every((item) => item.product.stockQuantity >= item.quantity)) {
         navigate("/checkout");
       } else {
-        toast.error('Some items are out of stock');
+        toast.error("Some items are out of stock");
       }
     }
   };
@@ -60,27 +61,42 @@ const Cart = () => {
                 <div>
                   <h2 className="text-lg font-semibold">{item.product.name}</h2>
                   <p>Price: ${item.product.price.toFixed(2)}</p>
-                  <div className="flex items-center">
-                    <button
+                  <div>
+                    <label htmlFor="Quantity" className="sr-only">
+                      {" "}
+                      Quantity{" "}
+                    </label>
+
+                    <div className="flex items-center rounded border border-gray-200">
+                      <button
                       onClick={() =>
                         handleQuantityChange(item.productId, item.quantity - 1)
                       }
                       disabled={item.quantity <= 1}
-                      className="px-2 py-1 bg-gray-300 rounded-l-lg"
-                    >
-                      -
-                    </button>
-                    <span className="px-4">{item.quantity}</span>
-                    <button
-                      onClick={() =>
-                        
-                        handleQuantityChange(item.productId, item.quantity + 1)
-                      }
-                      disabled={item.quantity >= item.product.stockQuantity}
-                      className="px-2 py-1 bg-gray-300 rounded-r-lg"
-                    >
-                      +
-                    </button>
+                        type="button"
+                        className="size-10 leading-10 text-gray-600 transition hover:opacity-75"
+                      >
+                        &minus;
+                      </button>
+
+                      <input
+                        type="number"
+                        id="Quantity"
+                        value={item.quantity}
+                        className="h-10 w-16 border-transparent text-center [-moz-appearance:_textfield] sm:text-sm [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
+                      />
+                       
+
+                      <button
+                        onClick={() =>  handleQuantityChange(item.productId, item.quantity + 1)
+                        }
+                        disabled={item.quantity >= item.product.stockQuantity}
+                        type="button"
+                        className="size-10 leading-10 text-gray-600 transition hover:opacity-75"
+                      >
+                        +
+                      </button>
+                    </div>
                   </div>
                   <div className="mt-2 flex gap-2">
                     <button
