@@ -8,9 +8,7 @@ const MainLayout = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar></Navbar>
-      {/* <div > */}
       <Outlet></Outlet>
-      {/* </div> */}
       <Footer></Footer>
     </div>
   );

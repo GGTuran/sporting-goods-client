@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import { Link } from 'react-router-dom';
-
-import { motion } from 'framer-motion';
-import Rating from '../ui/Rating';
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import Rating from "../ui/Rating";
 
 const ProductCard = ({ product }: any) => {
   return (
@@ -26,11 +25,10 @@ const ProductCard = ({ product }: any) => {
         <p className="text-sm mb-4">{product.brand}</p>
         <p className="text-sm mb-4">{product.description}</p>
         <div className="flex items-center mb-2 justify-between">
-          
-        <span className='flex gap-2'>{Rating(product.rating)}</span>
+          <span className="flex gap-2">{Rating(product.rating)}</span>
           <span className="font-medium">Stock:{product.stockQuantity}</span>
         </div>
-       
+
         <div className="flex justify-between items-center">
           <span className="font-medium">${product.price}</span>
           <Link
@@ -46,7 +44,6 @@ const ProductCard = ({ product }: any) => {
             </motion.button>
           </Link>
         </div>
-
       </div>
     </motion.div>
   );

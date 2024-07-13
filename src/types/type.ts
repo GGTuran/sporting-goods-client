@@ -16,7 +16,10 @@ export type TOrder = {
     email: string;
     phone: string;
     deliveryAddress: string;
-    productId: string;
-    quantity: number;
+    products: {
+        productId: string;
+        quantity: number;
+    }[];
+    
     paymentMethod: string;
 }

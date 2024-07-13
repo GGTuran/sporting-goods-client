@@ -12,11 +12,13 @@ const Cart = () => {
   const cart = useAppSelector((state) => state.cart.items);
   const navigate = useNavigate();
 
+  //function for removing product from cart
   const handleRemove = (productId: string) => {
     dispatch(removeFromCart(productId));
     toast.success("Item removed from cart");
   };
 
+  //function for updating product quantity
   const handleQuantityChange = (productId: string, quantity: number) => {
     dispatch(updateQuantity({ productId, quantity }));
     toast.success("Cart updated");
@@ -28,9 +30,10 @@ const Cart = () => {
       cart.reduce((total, item) => {
         return total + item.product.price * item.quantity;
       }, 0) * 1.15
-    ); 
+    );
   };
 
+  //navigate to checkout page
   const handleCheckout = (productId?: string) => {
     if (productId) {
       navigate(`/checkout?productId=${productId}`);
@@ -69,10 +72,13 @@ const Cart = () => {
 
                     <div className="flex items-center rounded border border-gray-200">
                       <button
-                      onClick={() =>
-                        handleQuantityChange(item.productId, item.quantity - 1)
-                      }
-                      disabled={item.quantity <= 1}
+                        onClick={() =>
+                          handleQuantityChange(
+                            item.productId,
+                            item.quantity - 1
+                          )
+                        }
+                        disabled={item.quantity <= 1}
                         type="button"
                         className="size-10 leading-10 text-gray-600 transition hover:opacity-75"
                       >
@@ -85,12 +91,15 @@ const Cart = () => {
                         value={item.quantity}
                         className="h-10 w-16 border-transparent text-center [-moz-appearance:_textfield] sm:text-sm [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
                       />
-                       
 
                       <button
-                        onClick={() =>  handleQuantityChange(item.productId, item.quantity + 1)
+                        onClick={() =>
+                          handleQuantityChange(
+                            item.productId,
+                            item.quantity + 1
+                          )
                         }
-                        disabled={item.quantity >= item.product.stockQuantity}
+                        // disabled={item.quantity >= item.product.stockQuantity}
                         type="button"
                         className="size-10 leading-10 text-gray-600 transition hover:opacity-75"
                       >
@@ -101,15 +110,9 @@ const Cart = () => {
                   <div className="mt-2 flex gap-2">
                     <button
                       onClick={() => handleRemove(item.productId)}
-                      className="px-4 py-2 bg-gray-300 text-black rounded-lg hover:bg-gray-500 transition-colors duration-300"
+                      className="px-4 py-2 bg-red-300 text-black rounded-lg hover:bg-red-500 transition-colors duration-300"
                     >
                       Remove
-                    </button>
-                    <button
-                      onClick={() => handleCheckout(item.productId)}
-                      className="px-4 py-2 bg-gray-300 text-black rounded-lg hover:bg-gray-500 transition-colors duration-300"
-                    >
-                      Order This Item
                     </button>
                   </div>
                 </div>
@@ -131,6 +134,7 @@ const Cart = () => {
             <h2 className="text-xl font-medium">
               Total: ${calculateTotal().toFixed(2)}
             </h2>
+
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

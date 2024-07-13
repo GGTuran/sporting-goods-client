@@ -3,7 +3,7 @@ import { SetStateAction, useState } from "react";
 import { useGetAllProductsQuery } from "@/redux/api/baseApi";
 
 import ProductCard from "@/components/ProductCard/ProductCard";
-import Extra from "@/components/Extra/Extra";
+import Loading from "@/components/Loading/Loading";
 
 const AllProducts = () => {
   const [selectedSort, setSelectedSort] = useState("all");
@@ -13,8 +13,6 @@ const AllProducts = () => {
   const [selectedPriceRange, setSelectedPriceRange] = useState("all");
   const [selectedRating, setSelectedRating] = useState("all");
 
-// console.log(cate)
-  
   // Function to get minimum price based on selected price range
   const getMinPrice = (range: string) => {
     switch (range) {
@@ -43,7 +41,7 @@ const AllProducts = () => {
     }
   };
 
-  // Fetch products based on sort, search term, category, brand, price range, and rating filters
+  // Fetching products based on sort, search term, category, brand, price range, and rating filters
   const {
     data: products,
     isLoading,
@@ -57,8 +55,6 @@ const AllProducts = () => {
     maxPrice: getMaxPrice(selectedPriceRange),
     minRating: selectedRating !== "all" ? parseInt(selectedRating) : undefined,
   });
-
-  // console.log(selectedCategory,setSelectedCategory,'validate')
 
   // Handle sorting change
   const handleSelectChange = (event: { target: { value: any } }) => {
@@ -96,7 +92,7 @@ const AllProducts = () => {
       const minPrice = getMinPrice(selectedPriceRange);
       const maxPrice = getMaxPrice(selectedPriceRange);
       filteredProducts = filteredProducts.filter((product) => {
-        const price = product.price; // Adjust this based on your product structure
+        const price = product.price;
         return (
           (!minPrice || price >= minPrice) && (!maxPrice || price <= maxPrice)
         );
@@ -106,8 +102,8 @@ const AllProducts = () => {
     // Filter by rating
     if (selectedRating !== "all") {
       filteredProducts = filteredProducts.filter((product) => {
-        const rating = product.rating; // Adjust this based on your product structure
-        return rating === parseInt(selectedRating); // Adjust for your rating comparison logic
+        const rating = product.rating;
+        return rating === parseInt(selectedRating);
       });
     }
 
@@ -125,7 +121,7 @@ const AllProducts = () => {
       case "priceDesc":
         sortedProducts.sort((a, b) => b.price - a.price);
         break;
-      // Add more cases for additional sorting criteria if needed
+
       default:
         // No sorting or default sorting logic
         break;
@@ -153,19 +149,20 @@ const AllProducts = () => {
   return (
     <div className="min-h-screen">
       <h1 className="text-center text-3xl font-semibold my-10">All Products</h1>
-       {/* Search form */}
-       <form onSubmit={(e) => e.preventDefault()} className="flex justify-center mb-5">
-                <input
-                    type="text"
-                    placeholder="Search by product name"
-                    value={searchTerm}
-                    onChange={handleInputChange}
-                    className="border rounded py-2 px-4 mr-2"
-                />
-        </form>
+      {/* Search form */}
+      <form
+        onSubmit={(e) => e.preventDefault()}
+        className="flex justify-center mb-5"
+      >
+        <input
+          type="text"
+          placeholder="Search by product name"
+          value={searchTerm}
+          onChange={handleInputChange}
+          className="border rounded py-2 px-4 mr-2"
+        />
+      </form>
       <section className="px-4 md:px-0">
-       
-
         {/* Filters */}
         <div className="flex flex-wrap justify-center mb-5">
           {/* Sort dropdown */}
@@ -178,7 +175,6 @@ const AllProducts = () => {
               <option value="all">Sort by...</option>
               <option value="priceAsc">Price: Low to High</option>
               <option value="priceDesc">Price: High to Low</option>
-              {/* Add more sorting options as needed */}
             </select>
           </div>
 
@@ -192,7 +188,8 @@ const AllProducts = () => {
               <option value="all">All Sports</option>
               <option value="Football">Football</option>
               <option value="Tennis">Tennis</option>
-              {/* Add more category options as needed */}
+              <option value="Basketball">Basketball</option>
+              <option value="Cricket">Cricket</option>
             </select>
           </div>
 
@@ -206,7 +203,7 @@ const AllProducts = () => {
               <option value="all">All Brands</option>
               <option value="Nike">Nike</option>
               <option value="Adidas">Adidas</option>
-              {/* Add more brand options as needed */}
+              <option value="Puma">Puma</option>
             </select>
           </div>
 
@@ -221,7 +218,6 @@ const AllProducts = () => {
               <option value="under50">Under $50</option>
               <option value="50to100">$50 - $100</option>
               <option value="over100">Over $100</option>
-              {/* Add more price range options as needed */}
             </select>
           </div>
 
@@ -238,7 +234,6 @@ const AllProducts = () => {
               <option value="3">3 Stars</option>
               <option value="4">4 Stars</option>
               <option value="5">5 Stars</option>
-              {/* Add more rating options as needed */}
             </select>
           </div>
 
@@ -246,7 +241,7 @@ const AllProducts = () => {
           <div className="w-full md:w-auto mb-2 md:mb-0">
             <button
               onClick={clearFilters}
-              className="bg-red-500 text-white py-2 px-4 rounded w-full md:w-auto"
+              className="px-4 py-2 bg-red-300 text-black rounded-lg hover:bg-red-500 transition-colors duration-300"
             >
               Clear Filters
             </button>
@@ -256,10 +251,9 @@ const AllProducts = () => {
       {/* Product list */}
       <div className="mx-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-5">
         {isLoading ? (
-          <p className="text-2xl text-black flex justify-center items-center">
-            {/* <Extra></Extra> */}
-            Loading......
-          </p>
+          <div className="text-2xl text-black flex justify-center items-center">
+            <Loading></Loading>
+          </div>
         ) : isError ? (
           <p className="text-2xl text-red-500 flex justify-center items-center">
             Error loading products

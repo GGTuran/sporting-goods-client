@@ -11,9 +11,13 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useState, useEffect, FormEvent, ChangeEvent } from "react";
-import { useGetProductByIdQuery,  useUpdateProductMutation } from "@/redux/api/baseApi";
+import {
+  useGetProductByIdQuery,
+  useUpdateProductMutation,
+} from "@/redux/api/baseApi";
 import toast, { Toaster } from "react-hot-toast";
 
+//type for handling form
 type FormData = {
   name: string;
   description: string;
@@ -25,13 +29,16 @@ type FormData = {
   image: string;
 };
 
-const UpdateProductModal = ({ productId}) => {
-  const { data: productData } = useGetProductByIdQuery(productId);
-  console.log(productData)
-  const [updateProduct, { isLoading }] = useUpdateProductMutation();
+const UpdateProductModal = ({ productId }: { productId: string }) => {
+  //fetching the single product by rtk query
+  const { data: productData, isLoading: isProductLoading } =
+    useGetProductByIdQuery(productId);
+  //update product hook from rtk query
+  const [updateProduct] = useUpdateProductMutation();
 
+  //setting all data as an empty string
   const [formData, setFormData] = useState<FormData>({
-    name: `${productData.data.name}`,
+    name: "",
     description: "",
     category: "",
     brand: "",
@@ -48,7 +55,9 @@ const UpdateProductModal = ({ productId}) => {
         description: productData.description || "",
         category: productData.category || "",
         brand: productData.brand || "",
-        stockQuantity: productData.stockQuantity ? productData.stockQuantity.toString() : "",
+        stockQuantity: productData.stockQuantity
+          ? productData.stockQuantity.toString()
+          : "",
         rating: productData.rating ? productData.rating.toString() : "",
         price: productData.price ? productData.price.toString() : "",
         image: productData.image || "",
@@ -56,6 +65,7 @@ const UpdateProductModal = ({ productId}) => {
     }
   }, [productData]);
 
+  //function for changing data
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
     setFormData((prevData) => ({
@@ -64,148 +74,165 @@ const UpdateProductModal = ({ productId}) => {
     }));
   };
 
+  //function for submitting form
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
     const updatedProduct = Object.keys(formData).reduce((acc, key) => {
       const value = formData[key as keyof FormData];
+      //taking all number typed data before sending it
       if (value) {
-        acc[key as keyof FormData] = ["stockQuantity", "rating", "price"].includes(key) ? Number(value) : value;
+        acc[key as keyof FormData] = [
+          "stockQuantity",
+          "rating",
+          "price",
+        ].includes(key)
+          ? Number(value)
+          : (value as any);
       }
       return acc;
     }, {} as Partial<FormData>);
 
     updateProduct({ id: productId, data: updatedProduct });
-    toast.success("Product Updated Successfully")
-    // console.log({ productId, ...updatedProduct }, 'from update modal');
+    toast.success("Product Updated Successfully");
   };
 
- 
+  if (isProductLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
-<div>
-  <Toaster/>
-<Dialog>
-      <DialogTrigger asChild>
-        <button className="px-4 py-2 bg-gray-300 text-black rounded-lg hover:bg-gray-500 transition-colors duration-300">Update</button>
-      </DialogTrigger>
+    <div>
+      <Toaster />
+      <Dialog>
+        <DialogTrigger asChild>
+          <button className="px-4 py-2 bg-gray-300 text-black rounded-lg hover:bg-gray-500 transition-colors duration-300">
+            Update
+          </button>
+        </DialogTrigger>
 
-      <DialogContent className="sm:max-w-[425px]">
-        <DialogHeader>
-          <DialogTitle>Update Product</DialogTitle>
-          <DialogDescription>Update the product details</DialogDescription>
-        </DialogHeader>
-        <form onSubmit={onSubmit}>
-          <div className="grid gap-4 py-4">
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="name" className="text-right">
-                Name
-              </Label>
-              <Input
-              placeholder={productData.data.name}
-                
-                value={formData.name}
-                onChange={handleChange}
-                id="name"
-                className="col-span-3"
-              />
+        <DialogContent className="sm:max-w-[425px]">
+          <DialogHeader>
+            <DialogTitle>Update Product</DialogTitle>
+            <DialogDescription>Update the product details</DialogDescription>
+          </DialogHeader>
+          <form onSubmit={onSubmit}>
+            <div className="grid gap-4 py-4">
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="name" className="text-right">
+                  Name
+                </Label>
+                <Input
+                  placeholder={productData?.data?.name}
+                  value={formData.name}
+                  onChange={handleChange}
+                  id="name"
+                  className="col-span-3"
+                />
+              </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="description" className="text-right">
+                  Description
+                </Label>
+                <Input
+                  placeholder={productData?.data?.description || ""}
+                  value={formData.description}
+                  onChange={handleChange}
+                  id="description"
+                  className="col-span-3"
+                />
+              </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="category" className="text-right">
+                  Category
+                </Label>
+                <Input
+                  placeholder={productData?.data?.category || ""}
+                  value={formData.category}
+                  onChange={handleChange}
+                  id="category"
+                  className="col-span-3"
+                />
+              </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="brand" className="text-right">
+                  Brand
+                </Label>
+                <Input
+                  placeholder={productData?.data?.brand || ""}
+                  value={formData.brand}
+                  onChange={handleChange}
+                  id="brand"
+                  className="col-span-3"
+                />
+              </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="stockQuantity" className="text-right">
+                  Stock Quantity
+                </Label>
+                <Input
+                  placeholder={
+                    productData?.data?.stockQuantity?.toString() || ""
+                  }
+                  value={formData.stockQuantity}
+                  onChange={handleChange}
+                  id="stockQuantity"
+                  type="number"
+                  className="col-span-3"
+                />
+              </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="rating" className="text-right">
+                  Rating
+                </Label>
+                <Input
+                  placeholder={productData?.data?.rating?.toString() || ""}
+                  value={formData.rating}
+                  onChange={handleChange}
+                  id="rating"
+                  type="number"
+                  className="col-span-3"
+                />
+              </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="price" className="text-right">
+                  Price
+                </Label>
+                <Input
+                  placeholder={productData?.data?.price?.toString() || ""}
+                  value={formData.price}
+                  onChange={handleChange}
+                  id="price"
+                  type="number"
+                  className="col-span-3"
+                />
+              </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="image" className="text-right">
+                  Image Link
+                </Label>
+                <Input
+                  placeholder={productData?.data?.image || ""}
+                  value={formData.image}
+                  onChange={handleChange}
+                  id="image"
+                  className="col-span-3"
+                />
+              </div>
             </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="description" className="text-right">
-                Description
-              </Label>
-              <Input
-              placeholder={productData.data.description}
-                value={formData.description}
-                onChange={handleChange}
-                id="description"
-                className="col-span-3"
-              />
+            <div className="flex justify-end">
+              <DialogClose asChild>
+                <button
+                  className="px-4 py-2 bg-gray-300 text-black rounded-lg hover:bg-gray-500 transition-colors duration-300"
+                  type="submit"
+                >
+                  Save
+                </button>
+              </DialogClose>
             </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="category" className="text-right">
-                Category
-              </Label>
-              <Input
-              placeholder={productData.data.category}
-                value={formData.category}
-                onChange={handleChange}
-                id="category"
-                className="col-span-3"
-              />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="brand" className="text-right">
-                Brand
-              </Label>
-              <Input
-              placeholder={productData.data.brand}
-                value={formData.brand}
-                onChange={handleChange}
-                id="brand"
-                className="col-span-3"
-              />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="stockQuantity" className="text-right">
-                Stock Quantity
-              </Label>
-              <Input
-              placeholder={productData.data.stockQuantity}
-                value={formData.stockQuantity}
-                onChange={handleChange}
-                id="stockQuantity"
-                type="number"
-                className="col-span-3"
-              />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="rating" className="text-right">
-                Rating
-              </Label>
-              <Input
-              placeholder={productData.data.rating}
-                value={formData.rating}
-                onChange={handleChange}
-                id="rating"
-                type="number"
-                className="col-span-3"
-              />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="price" className="text-right">
-                Price
-              </Label>
-              <Input
-              placeholder={productData.data.price}
-                value={formData.price}
-                onChange={handleChange}
-                id="price"
-                type="number"
-                className="col-span-3"
-              />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="image" className="text-right">
-                Image Link
-              </Label>
-              <Input
-              placeholder={productData.data.image}
-                value={formData.image}
-                onChange={handleChange}
-                id="image"
-                className="col-span-3"
-              />
-            </div>
-          </div>
-          <div className="flex justify-end">
-            <DialogClose asChild>
-              <button className="px-4 py-2 bg-gray-300 text-black rounded-lg hover:bg-gray-500 transition-colors duration-300" type="submit">Save</button>
-            </DialogClose>
-          </div>
-        </form>
-      </DialogContent>
-    </Dialog>
-</div>
+          </form>
+        </DialogContent>
+      </Dialog>
+    </div>
   );
 };
 

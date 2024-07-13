@@ -20,9 +20,10 @@ const cartSlice = createSlice({
     initialState,
     reducers: {
         addToCart: (state, action:PayloadAction<{ product: TProductCardProps }>) => {
+            //first we need to find the product
             const { product } = action.payload;
             const existingProduct = state.items.find(item => item.productId === product._id);
-
+            //then update the quantity
             if(existingProduct) {
                 if( existingProduct.quantity < product.stockQuantity) {
                     existingProduct.quantity++;
@@ -42,8 +43,8 @@ const cartSlice = createSlice({
               existingProduct.quantity = quantity;
             }
           },
-          clearOrderedItems: (state, action: PayloadAction<string>) => {
-            state.items = state.items.filter(item => !action.payload.includes(item.productId));
+          clearOrderedItems: (state) => {
+            state.items = [];
           }
     }
 });

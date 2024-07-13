@@ -12,6 +12,8 @@ import sliderImage2 from "@/assets/images/Adidas.jpg";
 import sliderImage3 from "@/assets/images/benjamin-hershey-qegSxvH9U9Y-unsplash.jpg";
 
 const HeroSection = () => {
+
+  // adding slider data to show
     const sliderData = [
         {
           id: 1,
@@ -39,7 +41,7 @@ const HeroSection = () => {
         className="overflow-hidden rounded-lg shadow-lg"
         plugins={[
           Autoplay({
-            delay: 6000,
+            delay: 3000,
           }),
         ]}
       >
@@ -50,7 +52,7 @@ const HeroSection = () => {
                 <CardContent className="flex items-center justify-center h-[300px] md:h-[400px] lg:h-[500px] p-0 relative">
                   <img
                     src={slider.image}
-                    className="h-full w-full  transition-transform duration-500 group-hover:scale-105"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     alt=""
                   />
                   <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">

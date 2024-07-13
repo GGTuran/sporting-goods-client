@@ -1,5 +1,4 @@
-
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 const Contact = () => {
   return (
@@ -14,7 +13,9 @@ const Contact = () => {
               className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5"
             >
               <div className="lg:col-span-2 lg:py-12">
-                <h1 className="text-3xl text-left font-medium mb-2">Contact Us</h1>
+                <h1 className="text-3xl text-left font-medium mb-2">
+                  Contact Us
+                </h1>
                 <p className="max-w-xl text-lg">
                   At the same time, the fact that we are wholly owned and
                   totally independent from manufacturer and other group control
@@ -48,14 +49,14 @@ const Contact = () => {
               >
                 <form action="#" className="space-y-4">
                   <div>
-                    <label className="sr-only" htmlFor="name">
+                    <label className="" htmlFor="name">
                       Name
                     </label>
                     <motion.input
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.6, duration: 0.5 }}
-                      className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                      className="w-full rounded-lg border-gray-200 p-3 text-sm text-black"
                       placeholder="Name"
                       type="text"
                       id="name"
@@ -69,7 +70,7 @@ const Contact = () => {
                     className="grid grid-cols-1 gap-4 sm:grid-cols-2"
                   >
                     <div>
-                      <label className="sr-only" htmlFor="email">
+                      <label className="" htmlFor="email">
                         Email
                       </label>
                       <motion.input
@@ -84,7 +85,7 @@ const Contact = () => {
                     </div>
 
                     <div>
-                      <label className="sr-only" htmlFor="phone">
+                      <label className="" htmlFor="phone">
                         Phone
                       </label>
                       <motion.input
@@ -104,7 +105,7 @@ const Contact = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.0, duration: 0.5 }}
                   >
-                    <label className="sr-only" htmlFor="message">
+                    <label className="" htmlFor="message">
                       Message
                     </label>
                     <textarea

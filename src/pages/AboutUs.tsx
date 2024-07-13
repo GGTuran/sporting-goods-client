@@ -3,44 +3,26 @@ import Contact from "./Contact";
 const AboutUs = () => {
   const teamMembers = [
     {
-      name: "John Doe",
+      name: "Michael Scott",
       role: "CEO",
       image:
-        "https://i.ibb.co/7Jx8VNf/christian-tenguan-P3gf-VKhz8d0-unsplash.jpg",
-      bio: "John is the visionary behind our company. With over 20 years of experience in the industry, he leads our team with a focus on innovation and excellence.",
+        "https://i.ibb.co/LRVq4J0/elegant-businessman-with-document.jpg",
+      bio: "Michael is the visionary behind our company. With over 20 years of experience in the industry, he leads our team with a focus on innovation and excellence.",
     },
     {
       name: "Jane Smith",
       role: "CTO",
-      image: "https://via.placeholder.com/150",
+      image:
+        "https://i.ibb.co/yV2kQNf/premium-photo-1661590863910-69abf33b8f3f-blend-000000-blend-alpha-10-blend-mode-normal-blend-w-1-cro.jpg",
       bio: "Jane is our technology guru. She is responsible for overseeing all technical aspects and drives our tech strategy forward.",
     },
     {
-      name: "Jane Smith",
-      role: "CTO",
-      image: "https://via.placeholder.com/150",
-      bio: "Jane is our technology guru. She is responsible for overseeing all technical aspects and drives our tech strategy forward.",
+      name: "Jordan Smith",
+      role: "HR",
+      image:
+        "https://i.ibb.co/GTwG8Cj/jeremy-mcgilvrey-Mum-4d-B0-Vs-E-unsplash.jpg",
+      bio: "Jordan is our HR guru. He is responsible for overseeing all human resources aspects and drives our HR strategy forward.",
     },
-    {
-      name: "Jane Smith",
-      role: "CTO",
-      image: "https://via.placeholder.com/150",
-      bio: "Jane is our technology guru. She is responsible for overseeing all technical aspects and drives our tech strategy forward.",
-    },
-    {
-      name: "Jane Smith",
-      role: "CTO",
-      image: "https://via.placeholder.com/150",
-      bio: "Jane is our technology guru. She is responsible for overseeing all technical aspects and drives our tech strategy forward.",
-    },
-    {
-      name: "Jane Smith",
-      role: "CTO",
-      image: "https://via.placeholder.com/150",
-      bio: "Jane is our technology guru. She is responsible for overseeing all technical aspects and drives our tech strategy forward.",
-    },
-
-    // Add more team members as needed
   ];
 
   return (
@@ -122,9 +104,9 @@ const AboutUs = () => {
                   width="100%"
                   height="100%"
                   frameBorder="0"
-                  allowFullScreen=""
+                  // allowFullScreen=""
                   aria-hidden="false"
-                  tabIndex="0"
+                  // tabIndex="0"
                   title="Acme Sports Store Location"
                 />
               </div>
