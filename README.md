@@ -95,6 +95,8 @@ npm run dev
 
 
 
+
+
 ## Error Handling
 
 The API uses standard HTTP status codes to indicate the success or failure of an API request. Common status codes include:

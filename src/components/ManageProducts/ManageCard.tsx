@@ -76,7 +76,7 @@ const ManageCard = ({
               <UpdateProductModal productId={_id}></UpdateProductModal>
               <button
                 onClick={removeProduct}
-                className="px-4 py-2 bg-gray-300 text-black rounded-lg hover:bg-gray-500 transition-colors duration-300"
+                className="px-4 py-2 bg-red-300 text-black rounded-lg hover:bg-red-500 transition-colors duration-300"
               >
                 Delete
               </button>
